@@ -3,6 +3,23 @@ import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { FiArrowRight, FiCheckCircle } from "react-icons/fi";
 import PageWrapper from "../components/PageWrapper";
+import SEO from "../components/SEO";
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About NS & Partners",
+  url: "https://nspartners.in/about",
+  description:
+    "NS & Partners is a modern legal practice committed to delivering strategic, business-oriented and ethically grounded legal services across India. With a network of professionals across courts, tribunals, and regulatory forums.",
+  mainEntity: {
+    "@type": "LegalService",
+    name: "NS & Partners",
+    url: "https://nspartners.in",
+    description:
+      "Multi-disciplinary law firm with 19+ practice areas and pan-India presence.",
+  },
+};
 
 function AnimatedSection({
   children,
@@ -47,6 +64,12 @@ const coreValues = [
 export default function About() {
   return (
     <PageWrapper>
+      <SEO
+        title="About the Firm"
+        description="NS & Partners is a modern legal practice delivering strategic, business-oriented and ethically grounded legal services. Pan-India presence across courts, tribunals, and regulatory forums."
+        canonical="/about"
+        jsonLd={aboutSchema}
+      />
       {/* ─── PAGE HEADER ────────────────────────────────────── */}
       <section
         style={{

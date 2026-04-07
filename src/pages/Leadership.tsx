@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper";
+import SEO from "../components/SEO";
 import { partners } from "../data";
 import nikhilImg from "../assets/Nikhil Mandhotra.jpg";
 import sujeetImg from "../assets/Sujeet Kumar.jpg";
@@ -33,9 +34,37 @@ function AnimatedSection({
   );
 }
 
+const leadershipSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Nikhil Mandhotra",
+    jobTitle: "Founding Partner",
+    worksFor: { "@type": "LegalService", name: "NS & Partners", url: "https://nspartners.in" },
+    url: "https://nspartners.in/leadership",
+    alumniOf: "ICFAI University, Dehradun",
+    knowsAbout: ["Property Laws", "Consumer Law", "Commercial Arbitration", "Intellectual Property", "Corporate Law", "Banking Law", "Labour Law", "GST", "Real Estate"],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Sujeet Kumar",
+    jobTitle: "Partner",
+    worksFor: { "@type": "LegalService", name: "NS & Partners", url: "https://nspartners.in" },
+    url: "https://nspartners.in/leadership",
+    knowsAbout: ["Criminal Law", "Commercial Arbitration", "Intellectual Property", "Corporate Law", "Banking Law", "Labour Law", "GST", "Real Estate"],
+  },
+];
+
 export default function Leadership() {
   return (
     <PageWrapper>
+      <SEO
+        title="Leadership"
+        description="Meet the founding partners of NS & Partners — Nikhil Mandhotra and Sujeet Kumar. Experienced advocates with expertise across intellectual property, criminal law, corporate advisory, arbitration, and more."
+        canonical="/leadership"
+        jsonLd={leadershipSchema}
+      />
       {/* ─── PAGE HEADER ────────────────────────────────────── */}
       <section
         style={{

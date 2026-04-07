@@ -1,4 +1,5 @@
-import { HashRouter as BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import Navbar from "./components/Navbar";
@@ -35,6 +36,7 @@ function AnimatedRoutes() {
 
 export default function App() {
   return (
+    <HelmetProvider>
     <BrowserRouter>
       <div
         style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
@@ -48,5 +50,6 @@ export default function App() {
         <BackToTop />
       </div>
     </BrowserRouter>
+    </HelmetProvider>
   );
 }

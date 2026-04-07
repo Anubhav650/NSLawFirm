@@ -3,6 +3,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { FiChevronDown, FiArrowRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper";
+import SEO from "../components/SEO";
 import { practiceAreas } from "../data";
 
 function AnimatedSection({
@@ -136,6 +137,23 @@ export default function PracticeAreas() {
 
   return (
     <PageWrapper>
+      <SEO
+        title="Practice Areas"
+        description="NS & Partners covers 19+ practice areas including Dispute Resolution, Intellectual Property, Corporate Advisory, Real Estate, Criminal Litigation, Banking & Finance, GST, and Start-up Solutions across India."
+        canonical="/practice-areas"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "NS & Partners Practice Areas",
+          url: "https://nspartners.in/practice-areas",
+          itemListElement: practiceAreas.map((area, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: area.title,
+            description: area.description,
+          })),
+        }}
+      />
       {/* ─── PAGE HEADER ────────────────────────────────────── */}
       <section
         style={{
@@ -272,7 +290,7 @@ export default function PracticeAreas() {
                     marginBottom: "8px",
                   }}
                 >
-                  {disputeAreas.length}
+                  Dispute Resolution & Litigation
                 </div>
                 <div
                   style={{
@@ -282,11 +300,6 @@ export default function PracticeAreas() {
                     fontWeight: 600,
                     marginBottom: "8px",
                   }}
-                >
-                  Dispute Resolution & Litigation
-                </div>
-                <div
-                  style={{ color: "#777", fontSize: "12px", lineHeight: 1.7 }}
                 >
                   Courts, Tribunals, Arbitrations, Consumer Forums
                 </div>
@@ -309,7 +322,7 @@ export default function PracticeAreas() {
                     marginBottom: "8px",
                   }}
                 >
-                  {corporateAreas.length}
+                  Corporate Advisory
                 </div>
                 <div
                   style={{
@@ -319,11 +332,6 @@ export default function PracticeAreas() {
                     fontWeight: 600,
                     marginBottom: "8px",
                   }}
-                >
-                  Corporate Advisory
-                </div>
-                <div
-                  style={{ color: "#777", fontSize: "12px", lineHeight: 1.7 }}
                 >
                   Compliance, Transactions, Start-ups, Taxation
                 </div>

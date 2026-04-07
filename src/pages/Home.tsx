@@ -16,6 +16,42 @@ import {
   FiAward,
 } from "react-icons/fi";
 import PageWrapper from "../components/PageWrapper";
+import SEO from "../components/SEO";
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  name: "NS & Partners",
+  alternateName: "NS & Partners Advocates & Legal Consultants",
+  url: "https://nspartners.in",
+  logo: "https://nspartners.in/favicon.svg",
+  description:
+    "NS & Partners is a modern Indian law firm offering strategic legal advisory and dispute resolution services across 19+ practice areas including intellectual property, corporate law, criminal litigation, real estate, and banking.",
+  telephone: "+91-XXXXXXXXXX",
+  email: "info@nspartners.in",
+  areaServed: "IN",
+  address: [
+    {
+      "@type": "PostalAddress",
+      streetAddress: "Vardhman Sunrise Plaza, Vasundhara Enclave",
+      addressLocality: "New Delhi",
+      addressCountry: "IN",
+    },
+    {
+      "@type": "PostalAddress",
+      streetAddress: "Naulakha, Sundernagar, Mandi",
+      addressRegion: "Himachal Pradesh",
+      addressCountry: "IN",
+    },
+    {
+      "@type": "PostalAddress",
+      streetAddress: "Thakurpur Road, Premnagar",
+      addressLocality: "Dehradun",
+      addressCountry: "IN",
+    },
+  ],
+  sameAs: [],
+};
 
 const coreValues = [
   {
@@ -97,6 +133,12 @@ function AnimatedSection({
 export default function Home() {
   return (
     <PageWrapper>
+      <SEO
+        title="NS & Partners — Advocates & Legal Consultants"
+        description="NS & Partners is a modern Indian law firm offering strategic legal advisory and dispute resolution services across 19+ practice areas. Offices in New Delhi, Himachal Pradesh & Dehradun."
+        canonical="/"
+        jsonLd={organizationSchema}
+      />
       {/* ─── HERO ─────────────────────────────────────────────── */}
       <section
         style={{

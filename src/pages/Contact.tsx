@@ -8,6 +8,7 @@ import {
   FiCheckCircle,
 } from "react-icons/fi";
 import PageWrapper from "../components/PageWrapper";
+import SEO from "../components/SEO";
 import { offices } from "../data";
 
 function AnimatedSection({
@@ -69,8 +70,33 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contact NS & Partners",
+    url: "https://nspartners.in/contact",
+    mainEntity: {
+      "@type": "LegalService",
+      name: "NS & Partners",
+      url: "https://nspartners.in",
+      email: "info@nspartners.in",
+      address: offices.map((o) => ({
+        "@type": "PostalAddress",
+        streetAddress: o.address.join(", "),
+        addressLocality: o.city,
+        addressCountry: "IN",
+      })),
+    },
+  };
+
   return (
     <PageWrapper>
+      <SEO
+        title="Contact Us"
+        description="Get in touch with NS & Partners. Offices in New Delhi, Himachal Pradesh, and Dehradun. Reach out for legal advisory, dispute resolution, or any other legal services."
+        canonical="/contact"
+        jsonLd={contactSchema}
+      />
       {/* ─── PAGE HEADER ────────────────────────────────────── */}
       <section
         style={{
