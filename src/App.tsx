@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
+import Disclaimer from "./components/Disclaimer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Leadership from "./pages/Leadership";
@@ -37,19 +38,24 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <HelmetProvider>
-    <BrowserRouter>
-      <div
-        style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
-      >
-        <ScrollToTop />
-        <Navbar />
-        <main style={{ flex: 1 }}>
-          <AnimatedRoutes />
-        </main>
-        <Footer />
-        <BackToTop />
-      </div>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Disclaimer />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "100vh",
+          }}
+        >
+          <ScrollToTop />
+          <Navbar />
+          <main style={{ flex: 1 }}>
+            <AnimatedRoutes />
+          </main>
+          <Footer />
+          <BackToTop />
+        </div>
+      </BrowserRouter>
     </HelmetProvider>
   );
 }
