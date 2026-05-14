@@ -6,10 +6,15 @@ import {
   FiMapPin,
   FiSend,
   FiCheckCircle,
+  FiAlertCircle,
 } from "react-icons/fi";
+import emailjs from "@emailjs/browser";
 import PageWrapper from "../components/PageWrapper";
 import SEO from "../components/SEO";
 import { offices } from "../data";
+
+// Initialize EmailJS (replace with your actual Public Key)
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "your-public-key-here");
 
 function AnimatedSection({
   children,
@@ -54,12 +59,39 @@ export default function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // In production this would POST to a backend
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || "your-service-id",
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "your-template-id",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+        },
+      );
+
+      setSubmitted(true);
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Failed to send message. Please try again.",
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (
@@ -493,21 +525,69 @@ export default function Contact() {
                         marginBottom: "12px",
                       }}
                     >
-                      Message Received
+                      Message Sent
                     </h3>
                     <p
                       style={{
                         color: "#999",
                         fontSize: "14px",
                         lineHeight: 1.8,
+                        marginBottom: "24px",
                       }}
                     >
-                      Thank you for reaching out. A member of our team will
-                      contact you shortly.
+                      Thank you for reaching out. Your message has been sent to
+                      our email. A member of our team will contact you shortly.
                     </p>
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      style={{
+                        padding: "10px 24px",
+                        background: "transparent",
+                        border: "1px solid #C9A961",
+                        color: "#C9A961",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        cursor: "pointer",
+                        letterSpacing: "0.1em",
+                        transition: "all 0.3s ease",
+                      }}
+                      onMouseEnter={(e) => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.background = "#C9A961";
+                        el.style.color = "#000";
+                      }}
+                      onMouseLeave={(e) => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.background = "transparent";
+                        el.style.color = "#C9A961";
+                      }}
+                    >
+                      Send Another Message
+                    </button>
                   </motion.div>
                 ) : (
                   <>
+                    {error && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        style={{
+                          padding: "16px",
+                          background: "rgba(239, 68, 68, 0.1)",
+                          border: "1px solid rgba(239, 68, 68, 0.3)",
+                          borderRadius: "4px",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                          marginBottom: "24px",
+                        }}
+                      >
+                        <FiAlertCircle size={18} color="#ef4444" />
+                        <p style={{ color: "#fca5a5", fontSize: "13px" }}>
+                          {error}
+                        </p>
+                      </motion.div>
+                    )}
                     <h3
                       style={{
                         fontSize: "28px",
@@ -784,38 +864,48 @@ export default function Contact() {
 
                       <button
                         type="submit"
+                        disabled={loading}
                         style={{
                           display: "inline-flex",
                           alignItems: "center",
                           justifyContent: "center",
                           gap: "10px",
                           padding: "14px 32px",
-                          background:
-                            "linear-gradient(135deg, #C9A961, #A8894A)",
+                          background: loading
+                            ? "rgba(201,169,97,0.5)"
+                            : "linear-gradient(135deg, #C9A961, #A8894A)",
                           border: "none",
                           color: "#000",
                           fontSize: "11px",
                           fontWeight: 700,
                           letterSpacing: "0.2em",
                           textTransform: "uppercase",
-                          cursor: "pointer",
+                          cursor: loading ? "not-allowed" : "pointer",
                           fontFamily: "Montserrat, sans-serif",
                           transition: "all 0.3s ease",
                           width: "100%",
                           marginTop: "8px",
+                          opacity: loading ? 0.7 : 1,
                         }}
                         onMouseEnter={(e) => {
-                          (e.currentTarget as HTMLElement).style.transform =
-                            "translateY(-2px)";
-                          (e.currentTarget as HTMLElement).style.boxShadow =
-                            "0 10px 30px rgba(201,169,97,0.3)";
+                          if (!loading) {
+                            (e.currentTarget as HTMLElement).style.transform =
+                              "translateY(-2px)";
+                            (e.currentTarget as HTMLElement).style.boxShadow =
+                              "0 10px 30px rgba(201,169,97,0.3)";
+                          }
                         }}
                         onMouseLeave={(e) => {
-                          (e.currentTarget as HTMLElement).style.transform = "";
-                          (e.currentTarget as HTMLElement).style.boxShadow = "";
+                          if (!loading) {
+                            (e.currentTarget as HTMLElement).style.transform =
+                              "";
+                            (e.currentTarget as HTMLElement).style.boxShadow =
+                              "";
+                          }
                         }}
                       >
-                        Send Message <FiSend size={14} />
+                        {loading ? "Sending..." : "Send Message"}{" "}
+                        {!loading && <FiSend size={14} />}
                       </button>
                     </form>
                   </>

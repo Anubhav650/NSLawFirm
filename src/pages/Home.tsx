@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import nikhilImg from "../assets/Nikhil Mandhotra.jpg";
 import sujeetImg from "../assets/Sujeet Kumar.jpg";
+import piyushImg from "../assets/Piyush Ranjan.jpg";
+import rahulImg from "../assets/Rahul Jaisingh.jpg";
 
 const partnerImages: Record<string, string> = {
   "Nikhil Mandhotra": nikhilImg,
   "Sujeet Kumar": sujeetImg,
+  "Piyush Ranjan": piyushImg,
+  "Rahul Jaisingh": rahulImg,
 };
 import {
   FiArrowRight,
@@ -1033,7 +1037,7 @@ export default function Home() {
                   lineHeight: 1.8,
                 }}
               >
-                Two accomplished advocates whose combined expertise spans the
+                Four accomplished advocates whose combined expertise spans the
                 full spectrum of legal practice in India.
               </p>
             </div>
@@ -1056,6 +1060,16 @@ export default function Home() {
                 name: "Sujeet Kumar",
                 title: "Partner",
                 desc: "Specialises in Criminal Laws, Commercial Arbitrations, IPR, Corporate Law, Banking, Labour and GST.",
+              },
+              {
+                name: "Piyush Ranjan",
+                title: "Partner",
+                desc: "Specialises in Civil & Criminal Litigation, Matrimonial Law, Consumer Litigation, Insolvency, Property Disputes and Regulatory Compliance.",
+              },
+              {
+                name: "Rahul Jaisingh",
+                title: "Partner",
+                desc: "Specialises in Arbitration, Insolvency & Bankruptcy, Intellectual Property, Commercial Litigation, and Corporate Advisory.",
               },
             ].map((partner, i) => (
               <AnimatedSection key={partner.name} delay={i * 0.15}>

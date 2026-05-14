@@ -7,10 +7,14 @@ import SEO from "../components/SEO";
 import { partners } from "../data";
 import nikhilImg from "../assets/Nikhil Mandhotra.jpg";
 import sujeetImg from "../assets/Sujeet Kumar.jpg";
+import piyushImg from "../assets/Piyush Ranjan.jpg";
+import rahulImg from "../assets/Rahul Jaisingh.jpg";
 
 const partnerImages: Record<string, string> = {
   "Nikhil Mandhotra": nikhilImg,
   "Sujeet Kumar": sujeetImg,
+  "Piyush Ranjan": piyushImg,
+  "Rahul Jaisingh": rahulImg,
 };
 
 function AnimatedSection({
@@ -40,19 +44,90 @@ const leadershipSchema = [
     "@type": "Person",
     name: "Nikhil Mandhotra",
     jobTitle: "Founding Partner",
-    worksFor: { "@type": "LegalService", name: "NS & Partners", url: "https://nspartners.in" },
+    worksFor: {
+      "@type": "LegalService",
+      name: "NS & Partners",
+      url: "https://nspartners.in",
+    },
     url: "https://nspartners.in/leadership",
     alumniOf: "ICFAI University, Dehradun",
-    knowsAbout: ["Property Laws", "Consumer Law", "Commercial Arbitration", "Intellectual Property", "Corporate Law", "Banking Law", "Labour Law", "GST", "Real Estate"],
+    knowsAbout: [
+      "Property Laws",
+      "Consumer Law",
+      "Commercial Arbitration",
+      "Intellectual Property",
+      "Corporate Law",
+      "Banking Law",
+      "Labour Law",
+      "GST",
+      "Real Estate",
+    ],
   },
   {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Sujeet Kumar",
     jobTitle: "Partner",
-    worksFor: { "@type": "LegalService", name: "NS & Partners", url: "https://nspartners.in" },
+    worksFor: {
+      "@type": "LegalService",
+      name: "NS & Partners",
+      url: "https://nspartners.in",
+    },
     url: "https://nspartners.in/leadership",
-    knowsAbout: ["Criminal Law", "Commercial Arbitration", "Intellectual Property", "Corporate Law", "Banking Law", "Labour Law", "GST", "Real Estate"],
+    knowsAbout: [
+      "Criminal Law",
+      "Commercial Arbitration",
+      "Intellectual Property",
+      "Corporate Law",
+      "Banking Law",
+      "Labour Law",
+      "GST",
+      "Real Estate",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Piyush Ranjan",
+    jobTitle: "Partner",
+    worksFor: {
+      "@type": "LegalService",
+      name: "NS & Partners",
+      url: "https://nspartners.in",
+    },
+    url: "https://nspartners.in/leadership",
+    knowsAbout: [
+      "Civil Litigation",
+      "Criminal Litigation",
+      "Matrimonial Law",
+      "Consumer Litigation",
+      "Commercial Disputes",
+      "Insolvency Law",
+      "Property Law",
+      "Regulatory Compliance",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Rahul Jaisingh",
+    jobTitle: "Partner",
+    worksFor: {
+      "@type": "LegalService",
+      name: "NS & Partners",
+      url: "https://nspartners.in",
+    },
+    url: "https://nspartners.in/leadership",
+    knowsAbout: [
+      "Arbitration Law",
+      "Insolvency & Bankruptcy",
+      "Intellectual Property",
+      "Commercial Litigation",
+      "Corporate Fraud",
+      "Data Protection",
+      "Regulatory Compliance",
+      "Risk Management",
+    ],
   },
 ];
 

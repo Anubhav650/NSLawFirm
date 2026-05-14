@@ -210,6 +210,64 @@ export const partners: Partner[] = [
       "Tribunals across India",
     ],
   },
+  {
+    name: "Piyush Ranjan",
+    title: "Partner",
+    education: "LL.B.",
+    bio: [
+      "Piyush Ranjan is a Partner at the Firm and is actively involved in handling complex litigation, dispute resolution, and legal advisory matters across diverse areas of law. He regularly advises and represents clients in matters relating to civil and criminal litigation, matrimonial and family disputes, consumer litigation, commercial and contractual disputes, insolvency proceedings, property disputes, and regulatory compliances.",
+      "His professional exposure includes handling service law matters before the Central Administrative Tribunal (CAT), armed forces matters before the Armed Forces Tribunal (AFT), Principal Bench, corporate and insolvency disputes before the NCLT and NCLAT, and consumer matters before the NCDRC and other forums.",
+      "Known for his strategic approach, meticulous drafting, and solution-oriented advocacy, Piyush Ranjan is committed to delivering effective and practical legal solutions tailored to the needs of clients while upholding the highest standards of professional ethics, integrity, and confidentiality.",
+    ],
+    specializations: [
+      "Civil Litigation",
+      "Criminal Litigation",
+      "Matrimonial & Family Law",
+      "Consumer Litigation",
+      "Commercial Disputes",
+      "Insolvency & Bankruptcy",
+      "Property Disputes",
+      "Regulatory Compliance",
+      "Service Law",
+      "Armed Forces Law",
+    ],
+    courts: [
+      "Central Administrative Tribunal (CAT)",
+      "Armed Forces Tribunal (AFT)",
+      "NCLT & NCLAT",
+      "NCDRC",
+      "District Courts",
+    ],
+  },
+  {
+    name: "Rahul Jaisingh",
+    title: "Partner",
+    education: "LL.B.",
+    bio: [
+      "Rahul Jaisingh is a Partner at the Firm with substantial experience in Arbitration Law, Insolvency and Bankruptcy Law, Intellectual Property Law, and Commercial Litigation. He regularly advises clients on a broad spectrum of contentious and advisory matters, including corporate fraud investigations, intellectual property protection and enforcement, data protection and privacy compliance, regulatory issues, and risk management strategies.",
+      "His practice encompasses representing and advising companies in complex commercial disputes as well as providing strategic legal counsel on day-to-day business and regulatory concerns. Through his extensive involvement in litigation and advisory mandates, he has developed strong expertise in legal drafting, research, case strategy, and analytical assessment of complex legal issues.",
+      "Rahul combines a commercially focused approach with a practical understanding of evolving legal and regulatory frameworks, enabling him to assist clients in navigating legal risks while supporting informed business decision-making.",
+    ],
+    specializations: [
+      "Arbitration Law",
+      "Insolvency & Bankruptcy Law",
+      "Intellectual Property Laws",
+      "Commercial Litigation",
+      "Corporate Fraud",
+      "Data Protection & Privacy",
+      "Regulatory Compliance",
+      "Risk Management",
+      "Legal Drafting",
+      "Corporate Advisory",
+    ],
+    courts: [
+      "Arbitral Tribunals",
+      "High Courts",
+      "NCLT",
+      "Commercial Courts",
+      "NCDRC",
+    ],
+  },
 ];
 
 export const offices: Office[] = [
@@ -232,5 +290,9 @@ export const offices: Office[] = [
   {
     city: "Dehradun",
     address: ["Shop No. 113, 114", "Thakurpur Road", "Premnagar, Dehradun"],
+  },
+  {
+    city: "Patna",
+    address: ["Budhha Colony", "Near Police Station", "Patna, Bihar – 800001"],
   },
 ];
